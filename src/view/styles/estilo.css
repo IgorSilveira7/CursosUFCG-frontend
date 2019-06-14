@@ -2,7 +2,7 @@ html{
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: purple;
+    background-color:rgb(31, 87, 164);
 }
 
 
@@ -22,6 +22,16 @@ header{
     grid-area: header;
     justify-content: center;
     justify-items: center;
+    padding: 10px 0px 0px 0px;
+}
+
+header h1{
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
+    font-size: 4em;
+    border-style: dashed;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 main{
@@ -32,9 +42,19 @@ main{
     background-color: white;
     justify-content: center;
     justify-items: center;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 10px;
+    text-align: center;
+    padding: 15px 50px 50px 50px;
+    border-radius: 50px;
+}
+
+.login h2{
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
+    margin-bottom: 40px;
+    border-bottom-style: solid;
+    border-width: 1px;
+
+    
 }
 
 
@@ -45,31 +65,36 @@ main{
 }
 
 .icon {
-    padding: 10px;
-    background: purple;
+    padding-top: 14px;
+    background:rgb(31, 87, 164);
     color: white;
     min-width: 50px;
     text-align: center;
+    border-radius: 8px;
 }
 
 .input-field {
     width: 100%;
     padding: 10px;
     outline: none;
+    border-style: unset;
+    border-bottom: 1px dotted black;
+    margin-left: 10px;
 }
 
 .input-field:focus {
-    border: 2px solid purple;
+    border: 2px solidrgb(31, 87, 164);
 }
 
 .btn {
-    background-color: purple;
+    background-color:rgb(31, 87, 164);
     color: white;
     padding: 15px 20px;
     border: none;
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
+    border-radius: 8px;
 }
 
 .btn:hover {
@@ -79,5 +104,7 @@ main{
 footer{
     grid-area: footer;
     bottom: 0;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
 }
 
