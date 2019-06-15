@@ -21,8 +21,17 @@ async function realizaLogin() {
         mode: "cors"
     };
 
-    let response = await fetch(BASEURL + '/v1/login/', config);
-    let data = await response.json();
+    try {
+        let response = await fetch(BASEURL + '/v1/login/', config);
+        if (!response.ok) {
+            throw response;
+        }
+        let data = await response.json();
 
-    login(data.token);
+        login(data.token);   
+    } catch (error) {
+        // TODO: Fazer a informação aparecer para o usuário.
+        let e = await error.json();
+        console.log(e);
+    }
 }
