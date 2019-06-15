@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Righteous&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/estilo.css">
+    <link rel="stylesheet" href="styles/signup.css">
     <title>Cursos UFCG</title>
 </head>
 <body>
@@ -18,23 +18,30 @@
     
 
     <main>
-            <div class="login">
-                <h2>Bem-vindo!</h2>
+            <div class="signup">
+                <h2>Cadastro</h2>
                 <div class="input-container">
-                  <i class="fa fa-user icon"></i>
-                  <input class="input-field" id="username" type="text" placeholder="Nome de usuário" name="username">
+                    <span>Nome:</span>
+                    <input class="input-field" id="name" type="text" placeholder="Nome" name="name">
+                </div>
+
+                <div class="input-container">
+                        <span>Sobrenome:</span>
+                        <input class="input-field" id="lastname" type="text" placeholder="Sobrenome" name="lastname">
+                </div>
+
+                <div class="input-container">
+                        <span>Email:</span>
+                        <input class="input-field" id="email" type="text" placeholder="Email" name="email">
                 </div>
               
                 <div class="input-container">
-                  <i class="fa fa-key icon"></i>
+                    <span>Senha:</span>
                   <input class="input-field" id="password" type="password" placeholder="Senha" name="password">
                 </div>
               
-                <button type="submit" class="btn">Entrar</button>
+                <button type="submit" class="btn">Cadastrar</button>
 
-                <div class="signup">
-                    <h5><a href="signup.html" target="_blank">Cadastre-se aqui</a></h5>
-                </div>
             </div>
                 
     </main>
