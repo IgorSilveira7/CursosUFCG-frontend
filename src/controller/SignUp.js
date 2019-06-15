@@ -27,8 +27,17 @@ async function CadastrarUsuario() {
         mode: "cors"
     };
 
-    let response = await fetch(BASEURL + "/v1/usuario/", config);
-    let dados = await response.json();
+    try {
+        let response = await fetch(BASEURL + "/v1/usuario/", config);
+        if (!response.ok) {
+            throw response;
+        }
 
-    console.log(dados);
+        let dados = await response.json();
+
+    } catch (error) {
+        // TODO: Mostrar ao usuário o erro.
+        let e = await error.json();
+        console.log(error);
+    }
 }
