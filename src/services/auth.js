@@ -1,13 +1,15 @@
-export const TOKEN_KEY = "@token_user";
+const TOKEN_KEY = "@token_user";
 
-export const isAuthenticated = () => localStorage.getItem(TOKEN) !== null;
+const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
 
-export const getToken = () => localStorage.getItem(TOKEN);
+const getToken = () => localStorage.getItem(TOKEN_KEY);
 
-export const login = (login) => {
-    localStorage.setItem(TOKEN, token);
-}
+const login = (login) => {
+    localStorage.setItem(TOKEN_KEY, login);
+};
 
-export const logout = () => {
-    localStorage.removeItem(TOKEN);
-}
+const logout = () => {
+    localStorage.removeItem(TOKEN_KEY);
+};
+
+export { isAuthenticated, getToken, login, logout };

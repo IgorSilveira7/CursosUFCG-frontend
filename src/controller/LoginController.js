@@ -1,9 +1,10 @@
 import { BASEURL } from "../services/api.js";
+import { login } from "../services/auth.js";
 
-document.getElementById("btn_entrar").onclick = login;
+document.getElementById("btn_entrar").onclick = realizaLogin;
 
-async function login() {
-    let login = {
+async function realizaLogin() {
+    let credenciais = {
         "email": document.getElementById("email").value,
         "senha": document.getElementById("password").value
     };
@@ -16,12 +17,12 @@ async function login() {
     let config = {
         method: 'POST',
         headers:  headers,
-        body: JSON.stringify(login),
+        body: JSON.stringify(credenciais),
         mode: "cors"
     };
 
     let response = await fetch(BASEURL + '/v1/login/', config);
     let data = await response.json();
 
-    console.log(data.token);
+    login(data.token);
 }
