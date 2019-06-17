@@ -28,7 +28,7 @@ async function realizaLogin() {
         }
         let data = await response.json();
 
-        login(data.token);   
+        login(data.token, credenciais.email);   
     } catch (error) {
         // TODO: Fazer a informação aparecer para o usuário.
         let e = await error.json();
