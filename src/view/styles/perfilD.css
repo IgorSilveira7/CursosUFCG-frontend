@@ -1,0 +1,125 @@
+html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color:rgb(0, 155, 239);
+}
+
+
+body{
+    display: grid;
+    grid-template-areas: "header header" 
+                         "main main" 
+                         "footer footer"; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto 1fr auto;
+    min-height: 100%;
+    align-items: center;
+    justify-items: center;
+}
+
+header{
+    grid-area: header;
+    justify-content: center;
+    justify-items: center;
+    padding: 10px 0px 0px 0px;
+}
+
+header h1{
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
+    font-size: 4em;
+    border-style: dashed;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+main{
+    grid-area: main;
+}
+
+.colunasD{
+    display: grid;
+    grid-template-areas: "presentation comments"
+                         "empty        comments";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto ;
+}
+
+.presentation{
+    grid-area: presentation;
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 8px;
+    list-style-position: left;
+ 
+}
+
+.presentation ul {
+    list-style-type: none;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
+    font-size: 1.5rem;
+}
+
+ul li::before {
+    content: "\1F393";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: rgb(0, 155, 239); /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -2em; /* Also needed for space (tweak if needed) */
+    margin-right: 10px;
+}
+
+.likeBtn i{
+    padding: 5px;
+}
+
+.likeBtn{
+    background:rgb(0, 155, 239);
+    color: white;
+    min-width: 50px;
+    border-radius: 10px;
+    margin-left: 5px;
+    opacity: 0.9;
+}
+
+.likeBtn:hover{
+    opacity: 1;
+    cursor: pointer;
+    border-style: solid;
+    border-color:rgb(0, 155, 239);
+    background-color: white;
+    color: rgb(0, 155, 239);
+}
+
+
+.comments{
+    grid-area: comments;
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.comments h3{
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
+    border-bottom-style: solid;
+}
+
+
+
+footer{
+    grid-area: footer;
+    bottom: 0;
+}
+
+footer h6{
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
+}
+
