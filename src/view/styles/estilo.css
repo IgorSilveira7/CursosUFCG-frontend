@@ -97,6 +97,8 @@ main{
     width: 100%;
     opacity: 0.9;
     border-radius: 8px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
 }
 
 .btnConvidado {
