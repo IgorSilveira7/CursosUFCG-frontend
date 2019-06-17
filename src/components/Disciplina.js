@@ -11,12 +11,12 @@ class Disciplina extends HTMLElement {
     }
 
     render() {
-        let html = `
+        let $html = `
             <div>
-                <p>${this.nome}</p>
-                <p>${this.id}</p>
+                <p>${this.id} - ${this.nome}</p>
             </div>
         `;
+        this.$shadowRoot.innerHTML = $html;
     }
 }
 

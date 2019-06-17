@@ -2,7 +2,7 @@ import { BASEURL } from "../services/api.js";
 import { getToken } from "../services/auth.js";
 import "../components/Disciplina.js";
 
-document.getElementById("btnBuscar").onclick = render();
+document.getElementById("btnBuscar").onclick = render;
 var dados;
 
 async function render() {
@@ -33,7 +33,6 @@ async function consumeAPI() {
     let config = {
         method: 'GET',
         headers:  headers,
-        body: JSON.stringify(credenciais),
         mode: "cors"
     };
 
