@@ -4,9 +4,23 @@ import { login } from "../services/auth.js";
 document.getElementById("btn_entrar").onclick = realizaLogin;
 
 async function realizaLogin() {
+    let email = document.getElementById("email");
+    let senha = document.getElementById("password");
+
+    email.onmousedown = _=> document.getElementById("errorMsg").style.visibility = "hidden";
+    senha.onmousedown = _=> document.getElementById("errorMsg").style.visibility = "hidden";
+    
+
+    if (email.value.trim() === "" || senha.value.trim() === "") { 
+        document.getElementById("errorMsg").style.visibility = "visible";
+        document.getElementById("errorMsg").innerText = "E-mail/Senha vazio!";
+        email.value = "";
+        senha.value = "";
+    }
+
     let credenciais = {
-        "email": document.getElementById("email").value,
-        "senha": document.getElementById("password").value
+        "email": email.value,
+        "senha": senha.value
     };
 
     let headers = {
@@ -30,8 +44,9 @@ async function realizaLogin() {
 
         login(data.token, credenciais.email);   
     } catch (error) {
-        // TODO: Fazer a informação aparecer para o usuário.
         let e = await error.json();
-        console.log(e);
+        document.getElementById("errorMsg").style.visibility = "visible";
+        document.getElementById("errorMsg").innerText = e.message;
     }
 }
+
