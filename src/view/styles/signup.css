@@ -58,6 +58,11 @@ main{
     
 }
 
+.signup h5{
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
+}
+
 
 .input-container {
     display: grid;

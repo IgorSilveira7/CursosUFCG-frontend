@@ -7,13 +7,13 @@ async function realizaLogin() {
     let email = document.getElementById("email");
     let senha = document.getElementById("password");
 
-    email.onmousedown = _=> document.getElementById("errorMsg").style.visibility = "hidden";
-    senha.onmousedown = _=> document.getElementById("errorMsg").style.visibility = "hidden";
+    email.onmousedown = hiddeErrorMsg;
+    senha.onmousedown = hiddeErrorMsg;
     
 
     if (email.value.trim() === "" || senha.value.trim() === "") { 
-        document.getElementById("errorMsg").style.visibility = "visible";
-        document.getElementById("errorMsg").innerText = "E-mail/Senha vazio!";
+        showErrorMsg();
+        document.getElementById("errorMsg").innerText = "Informe seu e-mail e senha!";
         email.value = "";
         senha.value = "";
     }
@@ -48,5 +48,16 @@ async function realizaLogin() {
         document.getElementById("errorMsg").style.visibility = "visible";
         document.getElementById("errorMsg").innerText = e.message;
     }
+}
+
+function showErrorMsg(){
+    document.getElementById("errorMsg").style.position = "relative";
+    document.getElementById("errorMsg").style.visibility = "visible";
+    document.getElementById("errorMsg").style.color = "red";
+}
+
+function hiddeErrorMsg(){
+    document.getElementById("errorMsg").style.visibility = "hidden";
+     document.getElementById("errorMsg").style.position = "absolute";
 }
 
