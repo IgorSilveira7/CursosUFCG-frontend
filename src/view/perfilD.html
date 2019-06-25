@@ -22,10 +22,10 @@
         <div class="colunasD">
             <div class="presentation">
                     <ul>
-                        <li class="ID Disciplina">ID Disciplina</li>
-                        <li class="NomeD">Nome da Disciplina</li>
-                        <li class="likesD">Curtidas: -100</li>
-                        <li class="mediaD">Média: 0.0</li>
+                        <li class="ID Disciplina" id="id" >ID Disciplina</li>
+                        <li class="NomeD" id="nome" >Nome da Disciplina</li>
+                        <li class="likesD" id="like" >Curtidas: -100</li>
+                        <li class="mediaD" id="media" >Média: 0.0</li>
                     </ul>
 
                     <button id="likeBtn" class="likeBtn"><i class="fa fa-thumbs-up icon"></i>Curtir</button> 
@@ -34,6 +34,9 @@
     
             <div class="comments">
                 <h3>Comentários</h3>
+
+                <ps-comentarios id="ps-comentarios" id_perfil=""></ps-comentarios>
+                
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facilis commodi ratione quos necessitatibus odit dicta saepe neque doloremque itaque nostrum magni, fugit architecto molestias quaerat natus veniam minus ex.</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptate facere magnam illum eveniet perferendis repellendus architecto numquam soluta excepturi ab aut, quibusdam nihil ex accusamus laborum. Pariatur, ducimus beatae.</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam facilis commodi ratione quos necessitatibus odit dicta saepe neque doloremque itaque nostrum magni, fugit architecto molestias quaerat natus veniam minus ex.</p>
@@ -53,5 +56,6 @@
         <h6>Criado por Igor Silveira & Rich Elton</h6>
     </footer>
 
+    <script type="module" src="../controller/PerfilController.js"></script>
 </body>
 </html>
