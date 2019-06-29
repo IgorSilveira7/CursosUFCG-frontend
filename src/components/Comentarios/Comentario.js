@@ -1,5 +1,6 @@
 import { getEmail } from "../../services/auth.js";
 import { BASEURL } from "../../services/api.js";
+import { getPerfil } from "../../services/auth.js";
 
 class Comentario extends HTMLElement {
     constructor() {
@@ -51,7 +52,7 @@ class Comentario extends HTMLElement {
 
         try {
             // Mudar o id do perfil de estático para dinamico.
-            const url = BASEURL + "/v1/comentario/apagarComentario/605/" + this.id + "/" + getEmail();
+            const url = BASEURL + "/v1/comentario/apagarComentario/"+ getPerfil() + "/" + this.id + "/" + getEmail();
             let response = await fetch(url, config);
             
             if (!response.ok) {

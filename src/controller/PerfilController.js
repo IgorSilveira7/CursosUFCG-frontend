@@ -90,7 +90,35 @@ async function like() {
 }
 
 async function comentar() {
-    
+    let headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+    };
+
+    let comentario = {
+        "conteudo": document.getElementById("commentText").value
+    };
+
+    let config = {
+        method: 'POST',
+        headers:  headers,
+        body: JSON.stringify(comentario),
+        mode: "cors"
+    };
+
+    try {
+        const url = BASEURL + "/v1/comentario/" + idPerfil + "/" + getEmail();
+        let response = await fetch(url, config);
+        if (!response.ok) {
+            throw response;
+        }
+
+        let comentario = await response.json();
+        console.log(comentario);
+    } catch (error) {
+        let e = await error.json();
+        console.log(e);
+    }
 }
 
 render();

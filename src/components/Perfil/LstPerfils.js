@@ -1,6 +1,6 @@
 import { BASEURL } from "../../services/api.js";
 import { getToken } from "../../services/auth.js";
-import "./Perfil.js";
+import "./InfoPerfil.js";
 
 class LstPerfils extends HTMLElement {
     constructor() {
