@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Disciplinas</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/convidado.css">
+</head>
+<body>
+    <header>
+        <h1>Cursos UFCG</h1>
+    </header>
+
+    <main>
+        <div class="search">
+            <button id="btnBuscar" class="searchBtn"><i class="fa fa-search icon">Buscar</i> </button>
+            <input class="input-field" id="txtDisciplina" type="text" placeholder="Informe o nome da Disciplina" name="disciplina">      
+        </div>
+
+        <div class="ordenation">
+            <button id="btnPorLikes" class="likesBtn"><i class="fa fa-search icon"></i>Por Likes</i></button>
+            <button id="btnPorComentarios" class="commentBtn"><i class="fa fa-search icon"></i>Por Comentários</i></button>
+        </div>
+
+        <div class="content" style="background-color: rgb(0, 155, 239);">
+            <ps-perfils query="" id="ps-perfils" ordenation="" style="visibility: hidden;"></ps-perfils>
+        </div>
+    </main>
+
+    <footer>
+        <h6>Criado por Igor Silveira & Rich Elton</h6>
+    </footer>
+
+    <script type="module" src="../controller/loginIndex.js"></script>
+</body>
+</html>

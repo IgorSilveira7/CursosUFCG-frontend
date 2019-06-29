@@ -5,7 +5,7 @@ import "../components/LstComentarios.js";
 
 let Perfil = {};
 
-const idPerfil = localStorage.getItem("id_perfil") || 605;
+const idPerfil = localStorage.getItem("id_perfil") || 1;
 let ps = document.getElementById("ps-comentarios");
 ps.setAttribute("id_perfil", idPerfil);
 

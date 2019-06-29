@@ -2,14 +2,15 @@ import { BASEURL } from "../services/api.js";
 import { getToken } from "../services/auth.js";
 import "../components/Disciplina.js";
 
-class LstDisciplinas extends HTMLElement {
+class LstPerfils extends HTMLElement {
     constructor() {
         super();
         this.$shadowRoot = this.attachShadow({"mode": "open"});
-        this.disciplinas = [];
+        this.perfils = [];
     }
 
     async connectedCallback() {
+        console.log("Oi");
         this.query = this.getAttribute("query");
         this.ordenation = this.getAttribute("ordenation");
         await this.render();
@@ -26,16 +27,24 @@ class LstDisciplinas extends HTMLElement {
             headers:  headers,
             mode: "cors"
         };
-        
-        const url = BASEURL + "/v1/disciplina/buscar/" + this.query;
+        var url;
+
+        if (this.ordenation === "likes") {
+            url =  BASEURL + "/v1/perfil/ordenarPorLikes";
+        } else if (this.ordenation === "comentarios") {
+            url =  BASEURL + "/v1/perfil/ordenarPorComentarios";
+        } else {
+            url = BASEURL + "/v1/perfil/buscar/" + this.query;
+        }
+
         try {
             let response = await fetch(url, config);
             if (!response.ok) {
                 throw response;
             }
 
-            this.disciplinas = await response.json();
-            console.log(this.disciplinas);
+            this.perfils = await response.json();
+            console.log(this.perfils);
         } catch (error) {
             let e = await error.json();
             console.log(e);
@@ -47,9 +56,9 @@ class LstDisciplinas extends HTMLElement {
         this.$shadowRoot.innerHTML = "";
         let $dsp = document.createElement("div");
 
-        this.disciplinas.map(disciplina => {
+        this.perfils.map(perfil => {
             let $html = `
-                <ps-disciplina nome="${disciplina.nome}" id="${disciplina.id}"></ps-disciplina>
+                <ps-disciplina nome="${perfil.disciplina.nome}" id="${perfil.id}"></ps-disciplina>
             `;
 
             let $div = document.createElement("div");
@@ -62,13 +71,18 @@ class LstDisciplinas extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['query'];
+        return ['query', 'ordenation'];
     }
 
     async attributeChangedCallback(name, oldValue, newValue) {
-        this.query = newValue;
+        if (name === "ordenation") {
+            this.ordenation = newValue;
+        } else {
+            this.query = newValue;
+        }
+
         await this.render();
     }
 }
 
-customElements.define("ps-disciplinas", LstDisciplinas);
+customElements.define("ps-perfils", LstPerfils);
