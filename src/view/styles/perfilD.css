@@ -42,7 +42,7 @@ main{
 .colunasD{
     display: grid;
     grid-template-areas: "presentation comments"
-                         "empty        comments";
+                         "commentBox  comments";
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto ;
 }
@@ -110,6 +110,46 @@ ul li::before {
     font-family: 'Righteous', cursive;
     border-bottom-style: solid;
 }
+
+.commentBox{
+    grid-area: commentBox;
+    display: grid;
+    grid-template-areas: "box"
+                        "btn";
+    align-items: center;
+    justify-items: center;
+}
+
+#commentText {
+    grid-area: "box";
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    height: 100px;
+    border-radius: 8px;
+    resize: none;
+    
+}
+
+#commentBtn {
+    grid-area: "btn";
+    background: rgb(231, 231, 231);
+    padding: 5px;
+    margin: 5px 10px;
+    color: black;
+    min-width: 50px;
+    width: 125px;
+    border-radius: 10px;
+   
+    margin-left: 5px;
+    
+}
+
+#commentBtn:hover {
+    cursor: pointer;
+}
+
+
 
 
 
