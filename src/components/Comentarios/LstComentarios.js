@@ -1,6 +1,6 @@
-import { BASEURL } from "../services/api.js";
-import { getEmail } from "../services/auth.js";
-import "../components/Comentario.js";
+import { BASEURL } from "../../services/api.js";
+import { getEmail } from "../../services/auth.js";
+import "./Comentario.js";
 
 class LstComentarios extends HTMLElement {
     constructor() {

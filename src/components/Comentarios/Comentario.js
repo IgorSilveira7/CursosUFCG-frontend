@@ -1,5 +1,5 @@
-import { getEmail } from "../services/auth.js";
-import { BASEURL } from "../services/api.js";
+import { getEmail } from "../../services/auth.js";
+import { BASEURL } from "../../services/api.js";
 
 class Comentario extends HTMLElement {
     constructor() {

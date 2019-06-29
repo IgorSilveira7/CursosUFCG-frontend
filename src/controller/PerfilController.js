@@ -1,11 +1,10 @@
 import { BASEURL } from "../services/api.js";
-import { getEmail } from "../services/auth.js";
-import "../components/Comentario.js";
-import "../components/LstComentarios.js";
+import { getEmail, getPerfil } from "../services/auth.js";
+import "../components/Comentarios/LstComentarios.js";
 
 let Perfil = {};
 
-const idPerfil = localStorage.getItem("id_perfil") || 1;
+const idPerfil = getPerfil() || 1;
 let ps = document.getElementById("ps-comentarios");
 ps.setAttribute("id_perfil", idPerfil);
 

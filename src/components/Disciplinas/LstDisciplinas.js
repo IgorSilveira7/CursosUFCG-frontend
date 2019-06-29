@@ -1,5 +1,5 @@
-import { BASEURL } from "../services/api.js";
-import { getToken } from "../services/auth.js";
+import { BASEURL } from "../../services/api.js";
+import { getToken } from "../../services/auth.js";
 import "../components/Disciplina.js";
 
 class LstDisciplinas extends HTMLElement {
