@@ -1,6 +1,6 @@
-import { BASEURL } from "../services/api.js";
-import { getToken } from "../services/auth.js";
-import "../components/Disciplina.js";
+import { BASEURL } from "../../services/api.js";
+import { getToken } from "../../services/auth.js";
+import "./InfoPerfil.js";
 
 class LstPerfils extends HTMLElement {
     constructor() {
@@ -58,7 +58,7 @@ class LstPerfils extends HTMLElement {
 
         this.perfils.map(perfil => {
             let $html = `
-                <ps-disciplina nome="${perfil.disciplina.nome}" id="${perfil.id}"></ps-disciplina>
+                <ps-perfil nome="${perfil.disciplina.nome}" id="${perfil.id}"></ps-disciplina>
             `;
 
             let $div = document.createElement("div");

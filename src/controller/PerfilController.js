@@ -1,11 +1,17 @@
 import { BASEURL } from "../services/api.js";
-import { getEmail } from "../services/auth.js";
-import "../components/Comentario.js";
-import "../components/LstComentarios.js";
+import { getEmail, getPerfil } from "../services/auth.js";
+import "../components/Comentarios/LstComentarios.js";
 
 let Perfil = {};
 
-const idPerfil = localStorage.getItem("id_perfil") || 1;
+// botões
+const btnLike = document.getElementById("likeBtn");
+const btnComment = document.getElementById("commentBtn");
+
+btnLike.onclick = () => like();
+btnComment.onclick = () => comentar();
+
+const idPerfil = getPerfil() || 1;
 let ps = document.getElementById("ps-comentarios");
 ps.setAttribute("id_perfil", idPerfil);
 
@@ -40,6 +46,10 @@ async function api() {
 
 async function render() {
     await api();
+    if (Perfil.usuarioAutenticadoCurtiu) {
+        btnLike.style.color = "red";
+    }
+
     const $id = document.getElementById("id");
     const $nome = document.getElementById("nome");
     const $like = document.getElementById("like");
@@ -49,6 +59,66 @@ async function render() {
     $nome.innerText = "Nome: " + Perfil.disciplina.nome;
     $like.innerText = "Curtidas: " + Perfil.curtidas.length;
     $media.innerText = "Média: " + Perfil.media;
+}
+
+async function like() {
+    let headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+    };
+
+    let config = {
+        method: 'POST',
+        headers:  headers,
+        mode: "cors"
+    };
+
+    try {
+        const url = BASEURL + "/v1/perfil/curtir/" + idPerfil + "/" + getEmail();
+        let response = await fetch(url, config);
+        if (!response.ok) {
+            throw response;
+        }
+
+        let perfil = await response.json();
+        Perfil = perfil;
+        console.log(Perfil);
+    } catch (error) {
+        let e = await error.json();
+        console.log(e);
+    }
+}
+
+async function comentar() {
+    let headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+    };
+
+    let comentario = {
+        "conteudo": document.getElementById("commentText").value
+    };
+
+    let config = {
+        method: 'POST',
+        headers:  headers,
+        body: JSON.stringify(comentario),
+        mode: "cors"
+    };
+
+    try {
+        const url = BASEURL + "/v1/comentario/" + idPerfil + "/" + getEmail();
+        let response = await fetch(url, config);
+        if (!response.ok) {
+            throw response;
+        }
+
+        let comentario = await response.json();
+        console.log(comentario);
+    } catch (error) {
+        let e = await error.json();
+        console.log(e);
+    }
 }
 
 render();

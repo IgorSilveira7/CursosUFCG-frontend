@@ -1,6 +1,6 @@
 import { BASEURL } from "../services/api.js";
 import { getToken } from "../services/auth.js";
-import "../components/LstPerfils.js";
+import "../components/Perfil/LstPerfils.js";
 
 document.getElementById("btnBuscar").onclick = render;
 document.getElementById("btnPorLikes").onclick = buscarPorLikes;
