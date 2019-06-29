@@ -88,6 +88,7 @@ ul li::before {
     opacity: 0.9;
     align-self: center;
     justify-self: center;
+    border: none;
    
 }
 
@@ -142,6 +143,7 @@ ul li::before {
     min-width: 50px;
     width: 125px;
     border-radius: 10px;
+    border: none;
     margin-left: 5px;
     opacity: 0.9;
     
