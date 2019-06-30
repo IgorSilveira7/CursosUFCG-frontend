@@ -1,8 +1,9 @@
 import { BASEURL } from "../services/api.js";
-import { getEmail, getPerfil } from "../services/auth.js";
+import { getEmail, getPerfil, getToken } from "../services/auth.js";
 import "../components/Comentarios/LstComentarios.js";
 
 let Perfil = {};
+let token = getToken();
 
 // botões
 const btnLike = document.getElementById("likeBtn");
@@ -15,12 +16,14 @@ const idPerfil = getPerfil() || 1;
 let ps = document.getElementById("ps-comentarios");
 ps.setAttribute("id_perfil", idPerfil);
 
+
 async function api() {
     let headers = {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
     };
-
+    
     let config = {
         method: 'GET',
         headers:  headers,
@@ -65,6 +68,7 @@ async function like() {
     let headers = {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + getToken()
     };
 
     let config = {
@@ -93,6 +97,7 @@ async function comentar() {
     let headers = {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + getToken()
     };
 
     let comentario = {
