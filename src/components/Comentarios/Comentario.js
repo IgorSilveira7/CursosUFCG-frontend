@@ -1,11 +1,13 @@
 import { getEmail } from "../../services/auth.js";
 import { BASEURL } from "../../services/api.js";
 import { getPerfil } from "../../services/auth.js";
+import "./Resposta.js";
 
 class Comentario extends HTMLElement {
     constructor() {
         super();
         this.$shadowRoot = this.attachShadow({"mode": "open"});
+        this.respostas = [];
     }
 
     connectedCallback() {
@@ -17,14 +19,23 @@ class Comentario extends HTMLElement {
         this.render();
     }
 
-    render() {
+    async render() {
+        let divPrincipal = document.createElement('div');
+
         let div = document.createElement("div");
-        let info_username_data = document.createElement("p");
-        let texto = document.createElement("p");
-        info_username_data.innerHTML = this.username + " - " + this.data;
-        texto.innerHTML = this.texto;
-        div.appendChild(info_username_data);
-        div.appendChild(texto);
+        div.innerHTML = `<link rel="stylesheet" href="../components/Comentarios/comentario.css">`;
+
+        var html = `
+            <div>
+                <p id="autor">${this.username} - ${this.data}</p>
+                <p id="texto">${this.texto}</p>
+            </div>
+        `;
+
+        let button1 = document.createElement("button");
+        button1.innerHTML = "Ver respostas";
+        button1.onclick = async () => await this.carregarRespostas();
+        div.appendChild(button1);
 
         if (this.autenticado == "true") {
             let button = document.createElement("button");
@@ -32,10 +43,23 @@ class Comentario extends HTMLElement {
             button.onclick = () => this.apagarComentario();
 
             div.appendChild(button);
-
+        }
+        
+        let divRespostas = document.createElement('div');
+        divRespostas.id = "respostas";
+        if (this.respostas) {
+            this.respostas.map(resposta => {
+                let html1 = `
+                    <ps-resposta id="${resposta.id}" usuario="${resposta.usuario.primeiroNome}" data=${resposta.date} autenticado=${resposta.comentarioDoUsuarioAutenticado}>${resposta.conteudo}</ps-resposta>
+                `;
+                divRespostas.innerHTML += html1;
+            });
         }
 
-        this.$shadowRoot.appendChild(div);
+        divPrincipal.innerHTML += html;
+        divPrincipal.appendChild(div);
+        divPrincipal.appendChild(divRespostas);
+        this.$shadowRoot.appendChild(divPrincipal);
     }
 
     async apagarComentario() {
@@ -51,7 +75,6 @@ class Comentario extends HTMLElement {
         };
 
         try {
-            // Mudar o id do perfil de estático para dinamico.
             const url = BASEURL + "/v1/comentario/apagarComentario/"+ getPerfil() + "/" + this.id + "/" + getEmail();
             let response = await fetch(url, config);
             
@@ -61,6 +84,34 @@ class Comentario extends HTMLElement {
             let comentario = await response.json();
 
             this.$shadowRoot.innerHTML = "";
+        } catch (error) {
+            let e = await error.json();
+            console.log(e);
+        }
+    }
+
+    async carregarRespostas() {
+        let headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+        };
+    
+        let config = {
+            method: 'GET',
+            headers:  headers,
+            mode: "cors"
+        };
+
+        try {
+            const url = BASEURL + "/v1/comentario/respostas/" + this.id + "/" + getEmail();
+            let response = await fetch(url, config);
+
+            if (!response.ok) {
+                throw response;
+            }
+            this.respostas = await response.json();
+            this.$shadowRoot.innerHTML = "";
+            this.render();
         } catch (error) {
             let e = await error.json();
             console.log(e);

@@ -47,6 +47,7 @@ class LstComentarios extends HTMLElement {
         console.log(this.comentarios);
         this.$shadowRoot.innerHTML = "";
         let $dsp = document.createElement("div");
+        $dsp.innerHTML = `<link rel="stylesheet" href="../components/Comentarios/comentarios.css">`
 
         this.comentarios.map(comentario => {
             let $html = `
