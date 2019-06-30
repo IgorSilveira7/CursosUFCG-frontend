@@ -2,6 +2,21 @@ div {
     background-color: aqua;
 }
 
-#respostas {
+#respostas, #addResposta {
     margin-left: 100px;
+}
+
+#commentAswerText {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    border-radius: 8px;
+    resize: none;
+}
+
+#btnResponder {
+    width: 100px;
+    height: 30px;
+    margin-bottom: 10px;
 }

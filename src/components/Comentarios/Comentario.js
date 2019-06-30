@@ -21,6 +21,7 @@ class Comentario extends HTMLElement {
 
     async render() {
         let divPrincipal = document.createElement('div');
+        divPrincipal.id = "divPrincipal";
 
         let div = document.createElement("div");
         div.innerHTML = `<link rel="stylesheet" href="../components/Comentarios/comentario.css">`;
@@ -60,6 +61,65 @@ class Comentario extends HTMLElement {
         divPrincipal.appendChild(div);
         divPrincipal.appendChild(divRespostas);
         this.$shadowRoot.appendChild(divPrincipal);
+        this.renderDivResposta();
+    }
+
+    renderDivResposta() {
+        // Div Principal.
+        let divAddResposta = document.createElement('div');
+        divAddResposta.id = "addResposta";
+
+        // Botão de responder.
+        let btnResponder = document.createElement('button');
+        btnResponder.id = "btnResponder";
+        btnResponder.innerHTML = "Responder";
+        btnResponder.onclick = () => this.adicionarResposta();
+
+        // Área de texto.
+        let html = `
+            <textarea id="commentAswerText"></textarea>
+        `;
+
+        // Adicionando elementos no 'shadowRoot'.
+        divAddResposta.innerHTML = html;
+        divAddResposta.appendChild(btnResponder);
+        divAddResposta.style.display = "grid";
+        
+
+        this.$shadowRoot.getElementById("divPrincipal").appendChild(divAddResposta);
+    }
+
+    async adicionarResposta() {
+        const text = this.$shadowRoot.getElementById("commentAswerText").value;
+        let comentario = {
+            "conteudo": text
+        }
+
+        let headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+        };
+    
+        let config = {
+            method: 'POST',
+            headers:  headers,
+            body: JSON.stringify(comentario),
+            mode: "cors"
+        };
+
+        try {
+            const url = BASEURL + "/v1/comentario/responderComentario/" + this.id + "/" + getEmail();
+            let response = await fetch(url, config);
+
+            if (!response.ok) {
+                throw response;
+            }
+            this.respostas = await response.json();
+            this.carregarRespostas();
+        } catch (error) {
+            let e = await error.json();
+            console.log(e);
+        }
     }
 
     async apagarComentario() {
