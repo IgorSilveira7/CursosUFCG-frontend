@@ -107,6 +107,7 @@ ul li::before {
     margin: 10px;
     background-color: white;
     border-radius: 8px;
+    min-width: 500px;
 }
 
 .comments h3{
