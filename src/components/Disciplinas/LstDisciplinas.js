@@ -1,6 +1,6 @@
 import { BASEURL } from "../../services/api.js";
 import { getToken } from "../../services/auth.js";
-import "../components/Disciplina.js";
+import "./Disciplina.js";
 
 class LstDisciplinas extends HTMLElement {
     constructor() {
