@@ -1,7 +1,7 @@
 import { BASEURL } from "../services/api.js";
 import { getToken } from "../services/auth.js";
-import "../components/Disciplinas/Disciplina.js";
-import "../components/Disciplinas/LstDisciplinas";
+
+import "../components/Disciplinas/LstDisciplinas.js";
 
 document.getElementById("btnBuscar").onclick = render;
 var dados;

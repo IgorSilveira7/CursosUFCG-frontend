@@ -20,6 +20,7 @@ class LstPerfils extends HTMLElement {
         let headers = {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + getToken()
         };
     
         let config = {

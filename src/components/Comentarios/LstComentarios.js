@@ -1,5 +1,5 @@
 import { BASEURL } from "../../services/api.js";
-import { getEmail } from "../../services/auth.js";
+import { getEmail, getToken } from "../../services/auth.js";
 import "./Comentario.js";
 
 class LstComentarios extends HTMLElement {
@@ -18,6 +18,7 @@ class LstComentarios extends HTMLElement {
         let headers = {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + getToken()
         };
 
         let config = {

@@ -1,4 +1,4 @@
-import { getEmail } from "../../services/auth.js";
+import { getEmail, getToken } from "../../services/auth.js";
 import { BASEURL } from "../../services/api.js";
 import { getPerfil } from "../../services/auth.js";
 import "./Resposta.js";
@@ -98,6 +98,7 @@ class Comentario extends HTMLElement {
         let headers = {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + getToken()
         };
     
         let config = {
@@ -126,6 +127,7 @@ class Comentario extends HTMLElement {
         let headers = {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + getToken()
         };
     
         let config = {
@@ -154,6 +156,7 @@ class Comentario extends HTMLElement {
         let headers = {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + getToken()
         };
     
         let config = {
