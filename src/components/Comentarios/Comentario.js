@@ -27,20 +27,25 @@ class Comentario extends HTMLElement {
         div.innerHTML = `<link rel="stylesheet" href="../components/Comentarios/comentario.css">`;
 
         var html = `
-            <div>
-                <p id="autor">${this.username} - ${this.data}</p>
+            <div id="info">
+                <div>
+                    <p id="autor">${this.username}</p>
+                    <p id="data">${this.data}</p>
+                </div> 
                 <p id="texto">${this.texto}</p>
             </div>
         `;
 
         let button1 = document.createElement("button");
         button1.innerHTML = "Ver respostas";
+        button1.className = "botao"
         button1.onclick = async () => await this.carregarRespostas();
         div.appendChild(button1);
 
         if (this.autenticado == "true") {
             let button = document.createElement("button");
             button.innerHTML = "Apagar";
+            button.className = "botao"
             button.onclick = () => this.apagarComentario();
 
             div.appendChild(button);
@@ -73,6 +78,7 @@ class Comentario extends HTMLElement {
         let btnResponder = document.createElement('button');
         btnResponder.id = "btnResponder";
         btnResponder.innerHTML = "Responder";
+        btnResponder.className = "botao"
         btnResponder.onclick = () => this.adicionarResposta();
 
         // Área de texto.

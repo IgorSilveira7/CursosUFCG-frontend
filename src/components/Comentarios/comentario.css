@@ -1,5 +1,20 @@
-div {
-    background-color: aqua;
+#divPrincipal {
+    border-style: solid;
+    border-radius: 8px;
+    border-color: black;
+    padding: 5px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
+}
+
+#info div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#autor {
+    font-weight: bold;
 }
 
 #respostas, #addResposta {
@@ -19,4 +34,15 @@ div {
     width: 100px;
     height: 30px;
     margin-bottom: 10px;
+}
+
+.botao {
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+.botao:hover {
+    cursor: pointer;
 }

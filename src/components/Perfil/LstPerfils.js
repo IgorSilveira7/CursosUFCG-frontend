@@ -10,7 +10,6 @@ class LstPerfils extends HTMLElement {
     }
 
     async connectedCallback() {
-        console.log("Oi");
         this.query = this.getAttribute("query");
         this.ordenation = this.getAttribute("ordenation");
         await this.render();

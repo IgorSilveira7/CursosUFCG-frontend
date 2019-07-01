@@ -50,7 +50,13 @@ async function api() {
 async function render() {
     await api();
     if (Perfil.usuarioAutenticadoCurtiu) {
-        btnLike.style.color = "red";
+        btnLike.style.color = "black";
+        btnLike.style.backgroundColor = "white";
+        btnLike.style.borderStyle = "solid";
+    } else {
+        btnLike.style.color = "white";
+        btnLike.style.backgroundColor = "black";
+        btnLike.style.borderStyle = "none";
     }
 
     const $id = document.getElementById("id");
@@ -86,7 +92,7 @@ async function like() {
 
         let perfil = await response.json();
         Perfil = perfil;
-        console.log(Perfil);
+        render();
     } catch (error) {
         let e = await error.json();
         console.log(e);
@@ -119,7 +125,6 @@ async function comentar() {
         }
 
         let comentario = await response.json();
-        console.log(comentario);
     } catch (error) {
         let e = await error.json();
         console.log(e);

@@ -14,11 +14,12 @@ class Perfil extends HTMLElement {
 
     render() {
         let div = document.createElement("div");
-        
+        div.innerHTML = `<link rel="stylesheet" href="../components/Perfil/perfil.css">`;
         let info = document.createElement("p");
         info.innerHTML = this.id + " - " + this.nome;
-        
+
         let a = document.createElement("a");
+        a.id = "botao"
         a.innerHTML = "Ir para perfil";
         a.href = "./perfilD.html";
         a.onclick = () => this.perfil();

@@ -1,0 +1,19 @@
+.ordenation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.botao {
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border-style: none;
+    align-self: center;
+    margin: 5px;
+}
+
+.botao:hover {
+    cursor: pointer;
+}

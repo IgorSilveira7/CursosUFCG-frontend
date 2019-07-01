@@ -1,0 +1,9 @@
+:host {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Righteous', cursive;
+}
+
+#botao {
+    color: blue;
+    text-decoration: none;
+}

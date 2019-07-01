@@ -20,6 +20,7 @@ class Resposta extends HTMLElement {
 
     render() {
         let div = document.createElement("div");
+        div.innerHTML = `<link rel="stylesheet" href="../components/Comentarios/comentario.css">`;
         let info_username_data = document.createElement("p");
         let texto = document.createElement("p");
         info_username_data.innerHTML = this.username + " - " + this.data;
@@ -30,6 +31,7 @@ class Resposta extends HTMLElement {
         if (this.autenticado == "true") {
             let button = document.createElement("button");
             button.innerHTML = "Apagar";
+            button.className = "botao";
             button.onclick = () => this.apagarComentario();
 
             div.appendChild(button);
