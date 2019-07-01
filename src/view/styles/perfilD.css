@@ -44,7 +44,7 @@ main{
     grid-template-areas: "presentation comments"
                          "commentBox  comments";
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto ;
+    grid-template-rows: 300px auto;
 }
 
 .presentation{
@@ -55,6 +55,7 @@ main{
     background-color: white;
     border-radius: 8px;
     list-style-position: left;
+    max-height: 280px;
  
 }
 
@@ -119,6 +120,8 @@ ul li::before {
     display: grid;
     grid-template-areas: "box"
                         "btn";
+    grid-template-columns: min-content;
+    grid-template-rows: min-content min-content;
     align-items: center;
     justify-items: center;
 }
