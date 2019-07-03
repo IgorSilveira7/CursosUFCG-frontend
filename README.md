@@ -39,6 +39,27 @@
     
     - `/SignUp.js` Arquivo responsável por controlar a página de cadastro para um novo usuário. Após o usuário digitar seus dados, o controller irá verificar os dados informados e passar para a API, caso seja bem sucedida a requisição, o usuário será cadastrado e irá redirecionar o usuário para a página de `view/index.html` para que ele possa realizar o login. Caso dê algo de errado, a mensagem de erro será devidamente tratada e mostrada ao usuário.
     
+- `src/model` Diretório onde encontra-se todos os Controllers da aplicação
     
+- `src/services` Diretório onde encontra-se todos os arquivos de serviços de nossa aplicação, URL Base do BackEnd e funções de salvar dados no localStorage do navegador.
+    - `/api.js` Arquivo responsável por exportar a URL Base da aplicação do BackEnd para que possa realizar as requisições de maneira mais fácil.
+
+    - `/auth.js` Arquivo responsável por salvar os dados necessários no localStorage do navegador: Salvar o `token` e `email` ao realizar login, remove caso eu faça logout. Salvar o ID do perfil na qual o usuário selecionou. E verifica se o usuário está autenticado. O arquivo exporta todos essas funcções.
+
+- `src/view` Diretório onde encontra-se todos os arquivos de Views e Estilização das páginas da aplicação.
+    - `/convidado.html` Arquivo responsável pela estrutura da página `convidado`, página para um usuário não autenticado procurar pelas disciplinas. Onde importa o script do controller responsável pela funcionalidade.
     
-    
+    - `/index.html` Arquivo responsável pela estrutura da página `login`, essa é a página inicial da nossa aplicação. Onde importa o script do controller responsável pela funcionalidade de login.
+
+    - `/login_index.html` Arquivo responsável pela estrutura da página `login Index`, página na qual o usuário é levado após fazer login, onde ele iŕa poderá listar todos os perfis, procurando por substring) ou ordenando por quantidade de likes ou comentários, e também ele irá poder ir para a página especifica de um perfil. Onde importa o script do controller responsável pela funcionalidade.
+
+    - `/perfilD.html` Arquivo responsável pela estrutura da página `perfil`, página que mostra as informações de um perfil de uma disciplina: ID, nome da disciplina, quantidades de like, botão de curtir e comentar um perfil, a listagem de comentários é feita pelo WebComponent `components/LstComentarios.js`. Onde importa o script do controller responsável pela funcionalidade.
+
+    - `/signup.html` Arquivo responsável pela estrutura da página `cadastrar` um usuário. Onde importa o script do controller responsável pela funcionalidade.
+
+    - `/styles` Diretório onde encontra-se os arquivos de estilização das páginas.
+        - `/convidade.css` Arquivo de estilização da página `convidado`.
+        - `/estilo.css` Arquivo de estilização de `footer` e `header` para todas as páginas.
+        - `/loginIndex.css` Arquivo de estilização da página `Login Index`.
+        - `/perfilD.css` Arquivo de estilização da página `Perfil`.
+        - `/signup.css` Arquivo de estilização da página `Cadastro`.
