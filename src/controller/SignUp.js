@@ -46,9 +46,8 @@ async function CadastrarUsuario() {
         }
 
         let dados = await response.json();
-
+        window.location.href = "../view/index.html";
     } catch (error) {
-        // TODO: Mostrar ao usuário o erro.
         let e = await error.json();
         document.getElementById("errorMsg").style.visibility = "visible";
         document.getElementById("errorMsg").innerText = e.message;

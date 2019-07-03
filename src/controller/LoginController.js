@@ -42,7 +42,8 @@ async function realizaLogin() {
         }
         let data = await response.json();
 
-        login(data.token, credenciais.email);   
+        login(data.token, credenciais.email);
+        window.location.href = "../view/login_index.html"
     } catch (error) {
         let e = await error.json();
         document.getElementById("errorMsg").style.visibility = "visible";
