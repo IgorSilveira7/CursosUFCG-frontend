@@ -4,4 +4,41 @@
 ## Explicação sobre os diretórios:
 > Uma explicação sobre cada arquivo e pasta do projeto.
 
-- `components` Diretório onde encontra-se todos os meus WebComponents
+- `src/components` Diretório onde encontra-se todos os WebComponents da aplicação.
+    - `/Comentario` Diretório onde encontra-se os WebComponents de comentários.
+        - `/Comentario.js` Arquivo responsável pela lógica de um comentário: Renderizar, renderizar respostas, evento de adicionar uma resposta e apagar o comentário.
+
+        - `LstComentarios.js` Arquivo responsável pela lógica da listagem de comentários: acessa API e captura os comentários daquele perfil selecionado.
+
+        - `Resposta.js` Arquivo responsável pela lógica de uma resposta a um comentário: Apagar essa resposta(caso seja o dono da resposta).
+        
+        - `comentario.css` Arquivo de estilização do WebComponent `comentario.js`.
+        
+        - `comentarios.css` Arquivo de estilizaço do WebComponent `LstComentarios.js`.
+    
+    - `/Disciplinas` Diretório onde encontra-se os WebComponents de comentários.
+        - `/Disciplina.js` Arquivo responsável pela lógica de uma disciplina: Renderizar o Id e Nome da disciplina.
+        
+        - `/LstDisciplinas.js` Arquivo responsável pela lógica de listagem de disciplinas: Acessa a API, e captura uma Lista de disciplinas e renderiza para cada WebComponent `Disciplina.js`.
+
+    - ``/Perfil` Diretório onde encontra-se os WebComponents de listagem de perfil e permite abrir a página especifica sobre um Perfil.
+        - `/InfoPerfil.js.js` Arquivo responsável pela lógica de um perfil: Renderizar o Id, Nome da disciplina e um botão que ao clicar irá abrir a página do Perfil selecionado.
+        
+        - `/LstPerfils.js.js` Arquivo responsável pela lógica de listagem de perfis: Acessa a API, e captura uma Lista de perfis e renderiza para cada WebComponent `InfoPerfil.js`. E permite que o usuário faça uma listagem pela quantidade de likes ou quantidade de comentários.
+        
+        - `perfil.css`Arquivo de estilização do WebCompnent `InfoPerfil.js`.
+
+- `src/controller` Diretório onde encontra-se todos os Controllers da aplicação
+    - `/ConvidadoController.js` Arquivo responsável por controlar a página de `view/convidado.html`, na qual é permitido um usuário não autenticado fazer buscas pelas disciplinas cadastradas no sistema. E ele renderiza o WebComponent de listagem de todas as disciplinas `components/Disciplinas/LstDisciplinas.js`.
+    
+    - `/LoginController.js` Arquivo responsável por controlar a página de login para usuário. Após o usuário digitar seus dados, o controller irá verificar as credenciais informadas e passar para a API, caso seja bem sucedida a autenticação, será salvo o `Email` e `token` do usuário e irá redirecionar o usuário para a página de `view//login_index.html`. Caso dê algo de errado, a mensagem de erro será devidamente tratada e mostrada ao usuário.
+    
+    - `/loginIndex.js` Arquivo responsável por controlar a página de index quando o usuário realiza o login, na qual será listado todos os perfis cadastrados no sistema, usando o WebComponent `components/Perfil/LstPerfils.js`. E é quem repassa para o WebComponent qual o tipo d ordenação o usuário escolheu(inofmração repassada através de um atributo do Componente.
+    
+    - `/PerfilController.js` Arquivo responsável por controlar a página de informaçes de um perfil. Irá acessar a API e capturar o perfil e renderizar as informaçes de: ID, nome da disciplina e quantidade de likes. E também é quem controla a ação de dar like e comentar no perfil.
+    
+    - `/SignUp.js` Arquivo responsável por controlar a página de cadastro para um novo usuário. Após o usuário digitar seus dados, o controller irá verificar os dados informados e passar para a API, caso seja bem sucedida a requisição, o usuário será cadastrado e irá redirecionar o usuário para a página de `view/index.html` para que ele possa realizar o login. Caso dê algo de errado, a mensagem de erro será devidamente tratada e mostrada ao usuário.
+    
+    
+    
+    
