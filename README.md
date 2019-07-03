@@ -21,7 +21,7 @@
         
         - `/LstDisciplinas.js` Arquivo responsável pela lógica de listagem de disciplinas: Acessa a API, e captura uma Lista de disciplinas e renderiza para cada WebComponent `Disciplina.js`.
 
-    - ``/Perfil` Diretório onde encontra-se os WebComponents de listagem de perfil e permite abrir a página especifica sobre um Perfil.
+    - `/Perfil` Diretório onde encontra-se os WebComponents de listagem de perfil e permite abrir a página especifica sobre um Perfil.
         - `/InfoPerfil.js.js` Arquivo responsável pela lógica de um perfil: Renderizar o Id, Nome da disciplina e um botão que ao clicar irá abrir a página do Perfil selecionado.
         
         - `/LstPerfils.js.js` Arquivo responsável pela lógica de listagem de perfis: Acessa a API, e captura uma Lista de perfis e renderiza para cada WebComponent `InfoPerfil.js`. E permite que o usuário faça uma listagem pela quantidade de likes ou quantidade de comentários.
