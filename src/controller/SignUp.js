@@ -1,4 +1,7 @@
 import { BASEURL } from "../services/api.js";
+import { redirectMenu } from "../services/redirect.js";
+
+document.getElementById("header").onclick = redirectMenu
 
 document.getElementById("btn_cadastrar").onclick = CadastrarUsuario;
 

@@ -25,6 +25,10 @@ header{
     padding: 10px 0px 0px 0px;
 }
 
+header:hover {
+    cursor: pointer;
+}
+
 header h1{
     font-family: 'Alegreya Sans SC', sans-serif;
     font-family: 'Righteous', cursive;

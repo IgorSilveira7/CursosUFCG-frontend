@@ -1,6 +1,8 @@
 import { BASEURL } from "../services/api.js";
 import { login } from "../services/auth.js";
+import { redirectMenu } from "../services/redirect.js";
 
+document.getElementById("header").onclick = redirectMenu;
 document.getElementById("btn_entrar").onclick = realizaLogin;
 
 async function realizaLogin() {

@@ -17,3 +17,7 @@
 .botao:hover {
     cursor: pointer;
 }
+
+header {
+    cursor: pointer;
+}

@@ -1,6 +1,9 @@
 import { BASEURL } from "../services/api.js";
 import { getEmail, getPerfil, getToken } from "../services/auth.js";
 import "../components/Comentarios/LstComentarios.js";
+import { redirectMenu } from "../services/redirect.js";
+
+document.getElementById("header").onclick = redirectMenu;
 
 let Perfil = {};
 let token = getToken();

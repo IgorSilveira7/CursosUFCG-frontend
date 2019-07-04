@@ -1,6 +1,9 @@
 import { BASEURL } from "../services/api.js";
 import { getToken } from "../services/auth.js";
 import "../components/Perfil/LstPerfils.js";
+import { redirectMenu } from "../services/redirect.js";
+
+document.getElementById("header").onclick = redirectMenu;
 
 document.getElementById("btnBuscar").onclick = render;
 document.getElementById("btnPorLikes").onclick = buscarPorLikes;
