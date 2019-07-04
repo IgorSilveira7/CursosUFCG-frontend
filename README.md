@@ -1,6 +1,14 @@
 # [Cursos UFCG](https://igorsilveira7.github.io/CursosUFCG/src/view/index.html)
 > Repositório para o Front-end do projeto da disciplina de Projeto de Software
 
+## Bibliotecas utilizadas:
+
+Nome           | Utilizada para
+:-------------- | :------:
+Fetch          | Para realizar as requisições para o banco.
+Custom Elements| Para criar os WebComponents da aplicação.
+
+
 ## Explicação sobre os diretórios:
 > Uma explicação sobre cada arquivo e pasta do projeto.
 
@@ -34,7 +42,7 @@
     - `/LoginController.js` Arquivo responsável por controlar a página de login para usuário. Após o usuário digitar seus dados, o controller irá verificar as credenciais informadas e passar para a API, caso seja bem sucedida a autenticação, será salvo o `Email` e `token` do usuário e irá redirecionar o usuário para a página de `view//login_index.html`. Caso dê algo de errado, a mensagem de erro será devidamente tratada e mostrada ao usuário.
     
     - `/loginIndex.js` Arquivo responsável por controlar a página de index quando o usuário realiza o login, na qual será listado todos os perfis cadastrados no sistema, usando o WebComponent `components/Perfil/LstPerfils.js`. E é quem repassa para o WebComponent qual o tipo d ordenação o usuário escolheu(inofmração repassada através de um atributo do Componente.
-    
+  
     - `/PerfilController.js` Arquivo responsável por controlar a página de informaçes de um perfil. Irá acessar a API e capturar o perfil e renderizar as informaçes de: ID, nome da disciplina e quantidade de likes. E também é quem controla a ação de dar like e comentar no perfil.
     
     - `/SignUp.js` Arquivo responsável por controlar a página de cadastro para um novo usuário. Após o usuário digitar seus dados, o controller irá verificar os dados informados e passar para a API, caso seja bem sucedida a requisição, o usuário será cadastrado e irá redirecionar o usuário para a página de `view/index.html` para que ele possa realizar o login. Caso dê algo de errado, a mensagem de erro será devidamente tratada e mostrada ao usuário.
