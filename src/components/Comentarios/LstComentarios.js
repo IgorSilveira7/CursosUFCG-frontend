@@ -10,6 +10,7 @@ class LstComentarios extends HTMLElement {
     }
 
     async connectedCallback() {
+        this.atualiza = this.getAttribute("atualiza");
         this.idPerfil = this.getAttribute("id_perfil");
         await this.render();
     }
@@ -65,13 +66,19 @@ class LstComentarios extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['id_perfil'];
+        return ['id_perfil', 'atualiza'];
     }
 
     async attributeChangedCallback(name, oldValue, newValue) {
-        console.log(newValue);
-        this.idPerfil = newValue;
-        await this.render();
+        console.log("OI");
+        if (name === "atualiza") {
+            this.atualiza = newValue;
+            await this.render();
+        } else {
+            console.log(newValue);
+            this.idPerfil = newValue;
+            await this.render();
+        }
     }
 }
 

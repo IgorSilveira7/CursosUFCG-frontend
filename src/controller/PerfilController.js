@@ -15,7 +15,7 @@ const btnComment = document.getElementById("commentBtn");
 btnLike.onclick = () => like();
 btnComment.onclick = () => comentar();
 
-const idPerfil = getPerfil() || 1;
+const idPerfil = getPerfil();
 let ps = document.getElementById("ps-comentarios");
 ps.setAttribute("id_perfil", idPerfil);
 
@@ -128,6 +128,7 @@ async function comentar() {
         }
 
         let comentario = await response.json();
+        ps.setAttribute("atualiza", comentario.id);
     } catch (error) {
         let e = await error.json();
         console.log(e);
